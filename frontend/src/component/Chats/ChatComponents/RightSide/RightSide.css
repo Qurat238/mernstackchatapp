@@ -243,9 +243,6 @@
     .noSelectedChatTextContainer{
         width: 67vw;
     }
-    /* .rightSide  .write > button{
-        margin-right: 2rem;
-    } */
 }
 @media (max-width:810px) {
     .rightSide{

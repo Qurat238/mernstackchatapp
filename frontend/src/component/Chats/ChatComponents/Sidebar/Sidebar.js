@@ -14,21 +14,25 @@ import axios from "axios";
 import SearchResultList from './SearchResultList';
 import SearchedResultLoading from './SearchedResultLoading';
 const Sidebar = () => {
+
     const navigate = useNavigate();
     const { user, chats, setChats, setSelectedChat } = ChatState();
     const [search, setSearch] = useState("");
     const [searchResult, setSearchResult] = useState([]);
     const [loading, setLoading] = useState(false);
     const [loadingChat, setLoadingChat] = useState();
+
     // const NotificationHandler = (e) => {
     //     navigate("/notifications");
     // }
+
     const ProfileHandler = (e) => {
         let profile = document.getElementById('profile');
         let overlay1 = document.getElementById('overlay1');
         profile.style.display = 'block';
         overlay1.style.display = 'block';
     }
+
     const LogoutHandler = (e) => {
         localStorage.removeItem("Info");
         navigate("/");
@@ -39,12 +43,12 @@ const Sidebar = () => {
             customClass: 'swal-wide'
         });
     }
+
     const SearchHandler = (e) => {
         let sidePanel = document.getElementById('sidePanel');
-        // let overlay = document.getElementById('overlay');
         sidePanel.style.left='0';
-        // overlay.style.display = 'block';
     }
+
     const handleSearch = async() => {
         if(!search){
             Swal.fire({
@@ -85,9 +89,7 @@ const Sidebar = () => {
             setSelectedChat(data);
             setLoadingChat(false);
             let sidePanel = document.getElementById('sidePanel');
-            // let overlay = document.getElementById('overlay');
             sidePanel.style.left='-100vw'
-            // overlay.style.display = 'none';
         } catch (error) {
             Swal.fire({
             text: 'Error fetching the chat',
@@ -97,11 +99,10 @@ const Sidebar = () => {
             })
         }
     }
+
     const closeHandler1 = (e) => {
         let sidePanel = document.getElementById('sidePanel');
-        // let overlay = document.getElementById('overlay');
         sidePanel.style.left='-100vw';
-        // overlay.style.display = 'none';
     }
 
     const closeHandler2 = (e) => {

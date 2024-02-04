@@ -166,33 +166,3 @@
         padding-left: 4rem;
     }
 }
-/* @media (max-width:368px) {
-    .searchedUser{
-        width: 90vw;
-        padding: 2rem;
-        margin-left: 4rem;
-    }
-    .searchedUser .searchedUserPic{
-        margin-right: 7%;
-    }
-    .searchedUser .searchedUserPic img {
-        width: 13rem;
-        height: 13rem;
-        margin-left: 3rem
-    }
-    .searchedUser .searchedUserInfo h1 {
-        font-size: 3.5rem;
-        margin-bottom: 1rem;
-    }
-    .searchedUser .searchedUserInfo p {
-        font-size: 3.5rem;
-    }
-}
-@media (max-width:305px) {
-    .searchedUser{
-        padding-right: 0;
-    }
-    .searchedUser .searchedUserPic img {
-        margin-left: 1rem;
-    }
-} */
