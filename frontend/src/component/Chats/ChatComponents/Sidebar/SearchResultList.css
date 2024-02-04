@@ -1,0 +1,198 @@
+.searchedUser {
+    width: 26vw;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    margin: 0 1rem;
+    margin-bottom: 1rem;
+    background-color: white;
+    transition: all 0.5s;
+}
+.searchedUser:hover{
+    background: radial-gradient(white, rgba(0, 0, 0, 0.2) 50%);
+}
+.searchedUser .searchedUserPic{
+    width: 20%;
+    margin-right: 5%;
+}
+.searchedUser .searchedUserPic img {
+    width: 100%;
+    height: 6rem;
+    border-radius: 100%;
+    margin-right: 2rem;
+}
+.searchedUser .searchedUserInfo {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.searchedUser .searchedUserInfo h1 {
+    margin-bottom: 0.3rem;
+    font-size: 2rem;
+}
+.searchedUser .searchedUserInfo p {
+    font-size: 1.5rem;
+}
+
+@media (max-width:1115px) {
+    .searchedUser .searchedUserPic{
+        width: 25%;
+        margin-right: 0;
+    }
+    .searchedUser .searchedUserInfo {
+        width: 65%;
+        margin-left: 5%;
+    }
+}
+@media (max-width:900px) {
+    .searchedUser {
+        width: 33vw;
+    }
+}
+@media (max-width:800px) {
+    .searchedUser .searchedUserInfo h1 {
+        font-size: 1.8rem;
+    }
+    .searchedUser .searchedUserInfo p {
+        font-size: 1.3rem;
+    }
+}
+@media (max-width:768px) {
+    .searchedUser .searchedUserPic{
+        width: 20%;
+        margin-right: 10%;
+    }
+    .searchedUser .searchedUserPic img{
+        width: 8rem;
+        height: 8rem;
+    }
+    .searchedUser .searchedUserInfo {
+        width: 70%;
+        margin-left: 0;
+        padding-left: 1rem;
+    }
+    .searchedUser .searchedUserInfo h1 {
+        font-size: 2.2rem;
+    }
+    .searchedUser .searchedUserInfo p {
+        font-size: 1.7rem;
+    }
+}
+@media (max-width:700px) {
+    .searchedUser {
+        margin-left: 2rem;
+        width: 41vw;
+    }
+}
+@media (max-width:568px) {
+    .searchedUser {
+        padding-left: 2rem;
+        width: 55vw;
+    }
+    .searchedUser .searchedUserPic{
+        margin-right: 5%;
+    }
+    .searchedUser .searchedUserPic img {
+        width: 12rem;
+        height: 12rem;
+    }
+    .searchedUser .searchedUserInfo{
+        padding-left: 2rem;
+    }
+    .searchedUser .searchedUserInfo h1 {
+        font-size: 3rem;
+    }
+    .searchedUser .searchedUserInfo p {
+        font-size: 2.5rem;
+    }
+}
+@media (max-width:520px) {
+    .searchedUser .searchedUserInfo{
+        padding-left: 4rem;
+    }
+}
+@media (max-width:440px) {
+    .searchedUser .searchedUserInfo h1 {
+        font-size: 3rem;
+    }
+    .searchedUser .searchedUserInfo p {
+        font-size: 3rem;
+    }
+}
+@media (max-width:400px) {
+    .searchedUser {
+        padding-left: 2rem;
+        width: 95vw;
+    }
+    .searchedUser .searchedUserPic{
+        margin-right: 0;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+    .searchedUser .searchedUserPic img {
+        width: 13rem;
+        height: 13rem;
+    }
+    .searchedUser .searchedUserInfo{
+        padding-left: 2rem;
+    }
+    .searchedUser .searchedUserInfo h1 {
+        font-size: 3.5rem;
+    }
+    .searchedUser .searchedUserInfo p {
+        font-size: 3.5rem;
+    }
+}
+@media (max-width:300px) {
+    .searchedUser .searchedUserInfo{
+        padding-left: 4rem;
+    }
+}
+@media (max-width:250px) {
+    .searchedUser .searchedUserInfo{
+        padding-left: 5rem;
+    }
+}
+@media (max-width:220px) {
+    .searchedUser .searchedUserPic img {
+        width: 11rem;
+        height: 11rem;
+    }
+    .searchedUser .searchedUserInfo{
+        padding-left: 4rem;
+    }
+}
+/* @media (max-width:368px) {
+    .searchedUser{
+        width: 90vw;
+        padding: 2rem;
+        margin-left: 4rem;
+    }
+    .searchedUser .searchedUserPic{
+        margin-right: 7%;
+    }
+    .searchedUser .searchedUserPic img {
+        width: 13rem;
+        height: 13rem;
+        margin-left: 3rem
+    }
+    .searchedUser .searchedUserInfo h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+    }
+    .searchedUser .searchedUserInfo p {
+        font-size: 3.5rem;
+    }
+}
+@media (max-width:305px) {
+    .searchedUser{
+        padding-right: 0;
+    }
+    .searchedUser .searchedUserPic img {
+        margin-left: 1rem;
+    }
+} */

@@ -1,0 +1,38 @@
+*{
+  margin: 0;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+html{
+  font-size: 62.5% !important;
+}
+@media (max-width:998px) {
+  html{
+      font-size: 55% !important;
+  }
+}
+@media (max-width:768px) {
+  html{
+      font-size: 45% !important;
+  }
+}
+@media (max-width:700px) {
+  .swal-wide{
+    width:70%;
+  }
+}
+@media (max-width:568px) {
+  html{
+      font-size: 35% !important;
+  }
+}
+@media (max-width:440px) {
+  html{
+      font-size: 30% !important;
+  }
+}
+@media (max-width:368px) {
+  html{
+      font-size: 25% !important;
+  }
+}
