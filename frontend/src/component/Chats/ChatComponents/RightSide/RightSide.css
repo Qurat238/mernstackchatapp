@@ -306,6 +306,7 @@
 @media (max-width:440px) {
     .rightSide{
         width: 0;
+        height: 85vh;
         display: none;
         padding-left: 2rem;
     }
@@ -336,7 +337,7 @@
         border-radius: 2rem;
     }
     .rightSide .messages .logic{
-        height: 70vh;
+        height: 65vh;
     }
     .logic::-webkit-scrollbar {
         height: 1rem;
