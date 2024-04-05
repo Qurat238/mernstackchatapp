@@ -58,6 +58,9 @@
     transition: 0.5s linear;
 }
 .signupForm{
+    padding-top: 2rem;
+}
+.signupForm{
     transform: translateY(-100%) translateX(-100rem);
 }
 .loginForm div,
@@ -66,9 +69,6 @@
     width: 100%;
     align-items: center;
     margin-bottom: 0.5rem;
-}
-.signupForm div:first-child{
-    margin-top: 4rem;
 }
 .loginForm div input,
 .signupForm div input{
