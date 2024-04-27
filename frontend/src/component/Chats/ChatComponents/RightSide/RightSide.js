@@ -118,37 +118,6 @@ const RightSide = ({fetchAgain, setFetchAgain}) => {
   }
 
   useEffect(() => {
-    const handleResize = () => {
-      const screenWidth = window.innerWidth;
-      if(screenWidth > 440){
-        let rightSide = document.getElementById('rightSide');
-        rightSide.style.width="54vw";
-        LeftSideAppear();
-      }
-    }
-    const handleResize1 = () => {
-      const screenWidth = window.innerWidth;
-      if(screenWidth > 800){
-        let rightSide = document.getElementById('rightSide');
-        let leftSide = document.getElementById('leftSide');
-        rightSide.style.width="72vw";
-        rightSide.style.marginLeft="0";
-        rightSide.style.marginRight="0";
-        leftSide.style.width="25vw";
-      }
-    }
-
-    window.addEventListener('resize', handleResize);
-    window.addEventListener('resize', handleResize1);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      window.removeEventListener('resize', handleResize1);
-    };
-
-  }, []);
-
-  useEffect(() => {
     socket = io(ENDPOINT);
     socket.emit("setup", user.user);
     socket.on("connection",() => setSocketConnected(true));
