@@ -7,8 +7,8 @@ import cloudinary from "cloudinary";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 import fileUpload from "express-fileupload";
-import { fileURLToPath } from 'url';
-import { dirname, join, resolve } from 'path';
+// import { fileURLToPath } from 'url';
+// import { dirname, join, resolve } from 'path';
 
 //routes
 import UserRoute from "./routes/UserRoute.js";
@@ -16,6 +16,14 @@ import ChatRoute from "./routes/ChatRoute.js";
 import MessageRoute from "./routes/MessageRoute.js";
 
 const app = express();
+
+const corsConfig = {
+  origin: process.env.FRONTEND_URL,
+  credentials: true,
+  method: ["GET", "POST", "PUT", "DELETE"],
+};
+
+app.options("", cors(corsConfig));
 app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
@@ -96,11 +104,11 @@ app.use('/api/v1/messages', MessageRoute);
 
 /*----------------------------------------Deployment---------------------------------------------*/
 
-// To run frontend and backend on same port
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-app.use(express.static(join(__dirname, "./frontend/build")));
-app.get("*",(req,res) => {
-    res.sendFile(resolve(__dirname, "./frontend/build/index.html"));
-});
+// // To run frontend and backend on same port
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = dirname(__filename);
+// app.use(express.static(join(__dirname, "./frontend/build")));
+// app.get("*",(req,res) => {
+//     res.sendFile(resolve(__dirname, "./frontend/build/index.html"));
+// });
 

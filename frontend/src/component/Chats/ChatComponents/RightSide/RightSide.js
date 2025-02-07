@@ -11,7 +11,7 @@ import icon from "../../../../images/icon.png";
 import io from "socket.io-client";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { LeftSideAppear } from '../LeftSide/LeftSide.js';
-const ENDPOINT = "https://localhost:3000/";
+const ENDPOINT = "http://localhost:3000";
 var socket, selectedChatCompare;
 
 const RightSide = ({fetchAgain, setFetchAgain}) => {
@@ -22,9 +22,10 @@ const RightSide = ({fetchAgain, setFetchAgain}) => {
   const [ socketConnected, setSocketConnected ] = useState(false);
   // const [ typing, setTyping ] = useState(false);
   // const [ isTyping, setIsTyping ] = useState(false);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
 
-  const { user, selectedChat, setSelectedChat, notifications, setNotifications } = ChatState();
+  const { user, selectedChat } = ChatState();
 
   const getSenderName = (loggedUser, users) => {
       return users[0]._id === loggedUser.user._id ? users[1].name : users[0].name;
@@ -94,7 +95,6 @@ const RightSide = ({fetchAgain, setFetchAgain}) => {
           },
           config
         );
-        console.log(data);
         socket.emit("new message", data);
         setNewMessage("");
         setMessages([...messages, data]);
@@ -117,36 +117,70 @@ const RightSide = ({fetchAgain, setFetchAgain}) => {
     LeftSideAppear();
   }
 
+
   useEffect(() => {
     const handleResize = () => {
-      const screenWidth = window.innerWidth;
-      if(screenWidth > 440){
-        let rightSide = document.getElementById('rightSide');
-        rightSide.style.width="54vw";
-        LeftSideAppear();
-      }
-    }
-    const handleResize1 = () => {
-      const screenWidth = window.innerWidth;
-      if(screenWidth > 800){
-        let rightSide = document.getElementById('rightSide');
-        let leftSide = document.getElementById('leftSide');
-        rightSide.style.width="72vw";
-        rightSide.style.marginLeft="0";
-        rightSide.style.marginRight="0";
-        leftSide.style.width="25vw";
-      }
-    }
+      setScreenWidth(window.innerWidth); // Update screen width dynamically
 
-    window.addEventListener('resize', handleResize);
-    window.addEventListener('resize', handleResize1);
+      let rightSide = document.getElementById("rightSide");
+      let leftSide = document.getElementById("leftSide");
 
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      window.removeEventListener('resize', handleResize1);
+      if (screenWidth > 440 && rightSide) {
+        rightSide.style.width = "54vw";
+        LeftSideAppear(); // Ensure this function is defined
+      }
+
+      if (screenWidth > 800 && rightSide && leftSide) {
+        rightSide.style.width = "72vw";
+        rightSide.style.marginLeft = "0";
+        rightSide.style.marginRight = "0";
+        leftSide.style.width = "25vw";
+      }
     };
 
-  }, []);
+    // Add event listener
+    window.addEventListener("resize", handleResize);
+
+    // Initial check (runs once)
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, [screenWidth]); // Depend on `screenWidth` so it updates
+
+  // const screenWidth = window.innerWidth;
+
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     if(screenWidth > 440){
+  //       let rightSide = document.getElementById('rightSide');
+  //       if(rightSide){
+  //         rightSide.style.width="54vw";
+  //         LeftSideAppear();
+  //       }
+  //     }
+  //   }
+  //   const handleResize1 = () => {
+  //     if(screenWidth > 800){
+  //       let rightSide = document.getElementById('rightSide');
+  //       let leftSide = document.getElementById('leftSide');
+  //       if(rightSide && leftSide){
+  //         rightSide.style.width="72vw";
+  //         rightSide.style.marginLeft="0";
+  //         rightSide.style.marginRight="0";
+  //         leftSide.style.width="25vw";
+  //       }
+  //     }
+  //   }
+
+  //   window.addEventListener('resize', handleResize);
+  //   window.addEventListener('resize', handleResize1);
+
+  //   return () => {
+  //     window.removeEventListener('resize', handleResize);
+  //     window.removeEventListener('resize', handleResize1);
+  //   };
+
+  // }, [screenWidth,window]);
 
   useEffect(() => {
     socket = io(ENDPOINT);
@@ -154,7 +188,7 @@ const RightSide = ({fetchAgain, setFetchAgain}) => {
     socket.on("connection",() => setSocketConnected(true));
     // socket.on("typing", () => setIsTyping(true));
     // socket.on("stop typing", () => setIsTyping(false));
-  },[])
+  },[user.user])
 
   // //Function to handle typing status
   // const typingHandler = (e) => {
@@ -254,7 +288,7 @@ const RightSide = ({fetchAgain, setFetchAgain}) => {
         ) : (
           <div className='logic' id='chatContainer'>
             {messages && messages.map((m,i) => (
-            <div>
+            <div key={i}>
               {selectedChat.isGroupChat ? (
                  <div className='groupIconsContainer'>
                     {m.sender._id !== user.user._id ? (

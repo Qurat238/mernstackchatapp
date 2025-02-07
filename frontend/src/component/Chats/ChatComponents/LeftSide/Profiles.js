@@ -5,7 +5,6 @@ import { ChatState } from '../../../../Context/ChatProvider';
 import Swal from "sweetalert2";
 import axios from 'axios';
 import SearchedResultLoading from '../Sidebar/SearchedResultLoading.js';
-import { IconButton } from '@mui/material';
 import { LeftSideVanish }  from "../LeftSide/LeftSide.js";
 import { RightSideAppear } from "../RightSide/RightSide.js";
 
@@ -16,7 +15,7 @@ const Profiles = ({fetchAgain}) => {
 
    const fetchChats = async() => {
       try {
-         const { data } = await axios.get(`${window.location.origin}/api/v1/chats/`);
+         const { data } = await axios.get(`${window.location.origin}/api/v1/chats`);
          setChats(data);
       } catch (error) {
          Swal.fire({
@@ -46,7 +45,6 @@ const Profiles = ({fetchAgain}) => {
    useEffect(() => {
       setLoggedUser(JSON.parse(localStorage.getItem("Info")));
       fetchChats();
-      console.log(chats);
    },[fetchAgain])
 
   return (

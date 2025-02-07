@@ -18,7 +18,6 @@ const LeftSide = ({fetchAgain}) => {
   const [groupChatSearch, setGroupChatSearch] = useState("");
   const [groupChatSearchedUsers, setGroupChatSearchedUsers] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [loadingChat, setLoadingChat] = useState();
 
   const createGroupChatHandler = (e) => {
         let createGroupChat = document.getElementById('createGroupChat');
