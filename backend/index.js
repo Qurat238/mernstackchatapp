@@ -96,6 +96,10 @@ cloudinary.config({
   api_secret:process.env.CLOUDINARY_API_SECRET
 });
 
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
+
 app.use('/api/v1/users', UserRoute);
 app.use('/api/v1/chats', ChatRoute);
 app.use('/api/v1/messages', MessageRoute);
