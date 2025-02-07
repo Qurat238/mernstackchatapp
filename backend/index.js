@@ -7,8 +7,6 @@ import cloudinary from "cloudinary";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 import fileUpload from "express-fileupload";
-// import { fileURLToPath } from 'url';
-// import { dirname, join, resolve } from 'path';
 
 //routes
 import UserRoute from "./routes/UserRoute.js";
@@ -102,13 +100,4 @@ app.use('/api/v1/users', UserRoute);
 app.use('/api/v1/chats', ChatRoute);
 app.use('/api/v1/messages', MessageRoute);
 
-/*----------------------------------------Deployment---------------------------------------------*/
-
-// // To run frontend and backend on same port
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = dirname(__filename);
-// app.use(express.static(join(__dirname, "./frontend/build")));
-// app.get("*",(req,res) => {
-//     res.sendFile(resolve(__dirname, "./frontend/build/index.html"));
-// });
 
